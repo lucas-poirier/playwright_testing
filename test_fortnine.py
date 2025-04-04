@@ -40,6 +40,7 @@ def test_motorcycle_helmets(page):
     assert "motorcycle-helmets" in page.url, "Not on motorcycle helmets page"
     page.wait_for_selector("body")
 
+    # Go to AGV K1 S Solid Helmet page
     helmet_link = page.get_by_role("link", name="AGV K1 S Solid Helmet $309.99")
     assert helmet_link is not None, "Link to AGV K1 S Solid Helmet not found"
     assert (
@@ -48,9 +49,9 @@ def test_motorcycle_helmets(page):
     helmet_link.click()
 
 
-def test_AGV_K1_S_Solid_Helmet(page):
-    # Navigate to the AGV K1 S Solid Helmet page
+def test_agv_k1_s_solid_helmet(page):
     assert "agv-k1-s-solid-helmet" in page.url, "Not on AGV K1 S Solid Helmet page"
+    page.wait_for_selector("body")
 
     # Get 2 white, medium helmets
     page.get_by_label("Color").select_option("14")
